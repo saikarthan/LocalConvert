@@ -3,6 +3,7 @@
 # 🔒 LocalConvert
 
 **A 100% Local, Privacy-First File Toolbox for Everyone.**  
+*Created by **K. Sai Keerthan | Security Researcher***  
 *Convert, edit, compress, and process files directly inside your browser — 0 servers, 0 uploads, 0 tracking.*
 
 [![Privacy First](https://img.shields.io/badge/Privacy-100%25_Local-brightgreen?style=flat-square)](#)
@@ -90,5 +91,5 @@ Whether you want to add a new tool, improve the UI, fix a bug, or write document
 Distributed under the MIT License. See `LICENSE` for more information.
 
 <div align="center">
-  <sub>Built with ❤️ for privacy and user security everywhere.</sub>
+  <sub>Built with ❤️ for privacy and user security everywhere by <b>K. Sai Keerthan | Security Researcher</b>.</sub>
 </div>
