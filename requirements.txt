@@ -1,0 +1,13 @@
+flask
+pypdf>=4.0
+pymupdf>=1.24
+pdf2docx>=0.5.8
+pillow>=10.0
+pillow-heif
+reportlab>=4.0
+python-pptx
+qrcode[pil]
+cryptography
+imageio-ffmpeg
+# optional – OCR tool (also needs Tesseract binary: https://github.com/tesseract-ocr/tesseract/wiki)
+pytesseract
