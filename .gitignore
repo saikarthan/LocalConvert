@@ -7,3 +7,7 @@ localconvert.zip
 bin/
 *.apk
 build_apk.sh
+buildozer.spec
+main.py
+sw.js
+manifest.json
