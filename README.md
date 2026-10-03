@@ -1,83 +1,46 @@
-<div align="center">
+# LocalConvert
 
-# 🔒 LocalConvert
+> **100% Local File Conversion & Security Toolbox**  
+> **Zero Cloud. Zero Server Uploads. 100% Private.**
 
-**A 100% Local, Privacy-First File Toolbox for Mobile & Desktop.**  
-*Created by **K. Sai Keerthan | Security Researcher***  
-
-Convert, edit, compress, and process files locally — 0 external servers, 0 data uploads, 0 tracking.
-
-[![Privacy First](https://img.shields.io/badge/Privacy-100%25_Local-brightgreen?style=flat-square)](#)
-[![No Data Uploads](https://img.shields.io/badge/Data_Transmission-Zero-blue?style=flat-square)](#)
-[![Android APK](https://img.shields.io/badge/Android-1--Click_APK-success?style=flat-square)](#-android-usage-1-click-apk)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](#contributing)
-
-[Features](#-features-suite-61-tools) • [Android Download](#-android-usage-1-click-apk) • [Desktop Run](#-desktop-usage-windows--mac--linux) • [Contributing](#-contributing)
-
-</div>
+LocalConvert is a lightweight, zero-telemetry utility app for desktop and mobile. All file conversions (Images, Text, JSON, Base64, EXIF metadata stripping, QR codes, Password generation) run **entirely inside your device's memory**. Files never touch any remote server.
 
 ---
 
-## 🌟 Why LocalConvert?
+## ⚡ Quick Start
 
-Online file tools make you upload sensitive documents, photos, and personal data to third-party cloud servers. 
+### 💻 Desktop (Windows, Mac, Linux)
+1. **Windows**: Double-click `run.bat`
+2. **Mac / Linux**: Run `./run.sh`
 
-**LocalConvert runs completely on your device:**  
-- 100% Offline execution — no internet needed
-- All uploaded files deleted automatically after processing
-- Implements strict security headers (CSP, X-Frame-Options, Referrer Policy)
-
----
-
-## 📱 Android Usage (1-Click APK)
-
-No terminals, no developer setup, no code execution needed!
-
-1. Download **`LocalConvert.apk`** from [GitHub Releases](../../releases).
-2. Tap the downloaded `.apk` file to install it on your Android phone.
-3. Tap the **LocalConvert** icon on your home screen.
-4. The app opens immediately on your phone ready to use!
+> **Note**: `app.py` auto-installs any missing dependencies automatically on first run and opens `http://127.0.0.1:5000` in your default browser.
 
 ---
 
-## 💻 Desktop Usage (Windows / Mac / Linux)
+### 📱 Mobile & Web (Android, iOS) — 100% Offline PWA
+You can install **LocalConvert** as a native app icon on your phone without downloading `.apk` files or developer setups:
 
-1. Clone or download this repository.
-2. Run the launcher for your operating system:
-   - **Windows**: Double-click `run.bat`
-   - **Mac / Linux**: Double-click `run.sh` or run `python3 app.py`
-3. Your browser automatically opens at `http://127.0.0.1:5001`.
-
----
-
-## 🛠️ Features Suite (61+ Tools)
-
-- 🖼️ **Image Tools**: JPG / PNG / WebP / BMP conversion, HEIC to JPG, Image Compressor, Resizer, Cropper, Rotator, **EXIF & Metadata Stripper** (removes GPS/camera tags), **Local OCR**, Base64 converter.
-- 📄 **PDF Tools**: Merge, Split, Rotate, Extract Pages, Page Counter, Compress, Watermark, **Text to PDF**, JPG to PDF, PDF to Word/Docs/PPT, Protect & Unlock.
-- 🎵 **Audio & Video Tools**: Video to MP3/WAV, Video Compressor, **Local Audio Format Converter** (MP3, WAV, FLAC, AAC, OGG, M4A, Opus).
-- 🔤 **Text Tools**: Word & Character Counter, Case Converter, Remove Duplicates, Sort Lines, Space Cleaner, Find & Replace, Text Stats.
-- 🛠️ **Dev Tools**: JSON Formatter & Minifier, CSV ↔ JSON, URL Encoder/Decoder, Base64 String, UUID Generator, Password Generator, QR Code Generator, Color Converter.
+1. Open **[https://saikarthan.github.io/LocalConvert/](https://saikarthan.github.io/LocalConvert/)** in Mobile Chrome or Safari.
+2. Tap the browser menu (⋮ or Share) and select **"Add to Home Screen"**.
+3. **Turn ON Airplane Mode** — launch the app icon from your home screen. It runs **100% offline** with zero internet connection!
 
 ---
 
-## 🤝 Contributing
+## 🛠️ Built-in Tools
 
-**LocalConvert is open to everyone around the world!**  
-If you would like to add new local tools, enhance security, or improve UI/UX, contributions are warmly welcomed.
-
-1. **Fork** the repository.
-2. Create your branch: `git checkout -b feature/my-new-tool`
-3. Commit your changes: `git commit -m 'Add new local feature'`
-4. Push to origin: `git push origin feature/my-new-tool`
-5. Open a **Pull Request**.
+- **Image Tools**: JPG ↔ PNG ↔ WebP converter, Image Cropper, Resizer, Compressor, EXIF Metadata Stripper, Image ↔ Base64.
+- **Text Tools**: Case Converter, Duplicate Line Remover, Line Sorter, Whitespace Cleanup, Find & Replace (Regex), Word & Character Counter, Text Statistics.
+- **Developer Tools**: JSON Formatter, Minifier & Validator, CSV ↔ JSON Converter, URL Encoder/Decoder, Base64 Text, UUID Generator, Password Generator, Color Converter (HEX/RGB/HSL).
 
 ---
 
-## 📜 License
+## 🛡️ Security & Privacy Assurance
+- **Zero Remote Storage**: Files are processed using standard HTML5 Web APIs in-memory.
+- **Open Source**: Every line of code is inspectable.
+- **No Analytics / Tracking**: No cookies, no external trackers, no remote endpoints.
 
-Distributed under the MIT License. See `LICENSE` for details.
+---
 
-<div align="center">
-  <sub>Created with ❤️ by <b>K. Sai Keerthan | Security Researcher</b></sub>
-</div>
+## 👤 Author & License
+Developed by **K. Sai Keerthan | Security Researcher**  
+Licensed under the [MIT License](LICENSE).
