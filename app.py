@@ -1,5 +1,27 @@
 import io, os, re, time, uuid, shutil, zipfile, pathlib
-import tempfile, threading, subprocess, webbrowser
+import tempfile, threading, subprocess, webbrowser, sys
+
+# ── Auto Dependency Installer (Zero Human Setup) ─────────────────────
+def _auto_install():
+    pkgs = ["flask", "pypdf", "pillow", "pymupdf", "pdf2docx", "reportlab", "python-pptx", "qrcode", "pytesseract"]
+    missing = []
+    for pkg in pkgs:
+        mod = pkg.replace("-", "_")
+        if mod == "pillow": mod = "PIL"
+        if mod == "pymupdf": mod = "fitz"
+        try:
+            __import__(mod)
+        except ImportError:
+            missing.append(pkg)
+    if missing:
+        print(f"[+] LocalConvert Auto-Setup: Installing missing dependencies ({', '.join(missing)})...")
+        try:
+            subprocess.check_call([sys.executable, "-m", "pip", "install", *missing])
+            print("[+] All dependencies installed successfully!\n")
+        except Exception as e:
+            print(f"[!] Auto-install warning: {e}")
+
+_auto_install()
 
 from flask import Flask, request, jsonify, Response, render_template
 from werkzeug.exceptions import HTTPException
