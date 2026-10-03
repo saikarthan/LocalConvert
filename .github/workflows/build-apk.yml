@@ -3,8 +3,6 @@ name: Build LocalConvert Android APK
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
   workflow_dispatch:
 
 jobs:
@@ -15,15 +13,19 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Build APK with Buildozer Action
-        uses: ArtemS-G/buildozer-action@v1
+      - name: Cache Buildozer global directory
+        uses: actions/cache@v4
+        with:
+          path: .buildozer
+          key: ${{ runner.os }}-buildozer-${{ hashFiles('buildozer.spec') }}
+
+      - name: Build APK
+        uses: ArtemSBulgakov/buildozer-action@v1
         with:
           command: buildozer android debug
-          subfolder: .
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: LocalConvert-Android-APK
+          name: LocalConvert-APK
           path: bin/*.apk
-
