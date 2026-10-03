@@ -3,3 +3,7 @@ __pycache__/
 *.pyc
 .DS_Store
 localconvert.zip
+.buildozer/
+bin/
+*.apk
+build_apk.sh
