@@ -6,7 +6,7 @@ source.dir = .
 source.include_exts = py,png,jpg,kv,atlas,html,css,js,txt
 version = 1.0.0
 
-requirements = python3,flask,pillow,pypdf,pymupdf,reportlab,qrcode,pytesseract
+requirements = python3,flask,pillow,pypdf,reportlab,qrcode
 
 orientation = portrait
 fullscreen = 0

@@ -30,12 +30,13 @@ jobs:
 
       - name: Build APK with Buildozer
         run: |
-          yes | buildozer android debug || true
+          yes | buildozer android debug
 
       - name: Upload APK to Release
         uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/') || github.event_name == 'release'
+        if: always()
         with:
           files: bin/*.apk
+          tag_name: ${{ github.ref_name }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
