@@ -1,54 +1,63 @@
 @echo off
-cd /d "%~dp0"
+setlocal enabledelayedexpansion
 title LocalConvert
 
+cd /d "%~dp0"
+
 echo.
-echo  ===========================================
-echo   LocalConvert - Starting up...
-echo  ===========================================
+echo ===================================================
+echo   LocalConvert - Privacy-First Local File Toolbox
+echo ===================================================
 echo.
 
-:: Check if Python is installed
-python --version >nul 2>&1
-if errorlevel 1 (
-    echo [ERROR] Python is not installed or not in PATH.
-    echo.
-    echo  Please download and install Python from:
-    echo  https://www.python.org/downloads/
-    echo.
-    echo  IMPORTANT: During install, check the box that says
-    echo  "Add Python to PATH" before clicking Install.
-    echo.
-    pause
-    exit /b 1
-)
-
-echo [OK] Python found.
-
-:: Create virtual environment if it doesn't exist
-if not exist venv (
-    echo [+] First-time setup: creating virtual environment...
-    python -m venv venv
-    if errorlevel 1 (
-        echo [ERROR] Failed to create virtual environment.
+:: Try 'python' first, then 'py'
+where python >nul 2>&1
+if %errorlevel% equ 0 (
+    set PY_CMD=python
+) else (
+    where py >nul 2>&1
+    if %errorlevel% equ 0 (
+        set PY_CMD=py
+    ) else (
+        echo [ERROR] Python was not found on your system!
+        echo.
+        echo Please download and install Python from:
+        echo https://www.python.org/downloads/
+        echo.
+        echo IMPORTANT: Check the box "Add Python to PATH" during installation.
+        echo.
         pause
         exit /b 1
     )
-    echo [+] Installing required packages (this takes 1-2 minutes the first time)...
-    call venv\Scripts\pip install -r requirements.txt
-    if errorlevel 1 (
-        echo [ERROR] Failed to install packages.
-        pause
-        exit /b 1
+)
+
+echo [OK] Using Python command: %PY_CMD%
+
+:: Check if virtual environment exists, if not create it
+if not exist "venv\Scripts\python.exe" (
+    echo [+] Setting up local environment (one-time setup)...
+    %PY_CMD% -m venv venv
+    if not exist "venv\Scripts\python.exe" (
+        echo [!] Virtual environment creation failed. Falling back to system Python...
+        set PY_EXE=%PY_CMD%
+    ) else (
+        set PY_EXE=venv\Scripts\python.exe
     )
-    echo [OK] Setup complete!
+) else (
+    set PY_EXE=venv\Scripts\python.exe
+)
+
+echo [+] Starting LocalConvert on http://127.0.0.1:5001 ...
+echo [!] Keep this window open while using LocalConvert.
+echo.
+
+"%PY_EXE%" app.py
+
+if %errorlevel% neq 0 (
+    echo.
+    echo [!] LocalConvert stopped with an error code (%errorlevel%).
 )
 
 echo.
-echo [OK] Launching LocalConvert at http://127.0.0.1:5000
-echo      Close this window to stop the app.
-echo.
-
-call venv\Scripts\python app.py
-
-pause
+echo Press any key to close this window.
+pause >nul
